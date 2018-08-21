@@ -11,7 +11,7 @@ import Comp4 from './components/comp4/Comp4'
 class App extends Component {
   render() {
     var layout = [
-      {i: 'a', x: 0, y: 0, w: 3, h: 4, static:false, isDraggable:true, isResizable:true},
+      {i: 'a', x: 0, y: 0, w: 3, h: 4, static:false, isDraggable:false, isResizable:true},
       {i: 'b', x: 3, y: 0, w: 3, h: 4,},
       {i: 'c', x: 6, y: 0, w: 3, h: 4},
       {i: 'd', x: 9, y: 0, w: 3, h: 4},

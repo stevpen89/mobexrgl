@@ -29,6 +29,8 @@
   border:1px solid red;
   background-color: lightgoldenrodyellow;
   color:blue;
+  resize:both;
+  overflow:auto;
 }
 
 @keyframes App-logo-spin {
