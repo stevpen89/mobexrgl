@@ -3,21 +3,34 @@ import logo from './logo.svg';
 import './App.css';
 import './reset.css';
 import ReactGridLayout from 'react-grid-layout'
+import AppStore from './stores/AppStore'
 import Comp1 from './components/comp1/Comp1'
 import Comp2 from './components/comp2/Comp2'
 import Comp3 from './components/comp3/Comp3'
 import Comp4 from './components/comp4/Comp4'
+import {observer} from "mobx-react"
+import '../node_modules/react-grid-layout/css/styles.css'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+  
+  }
+
+  increment(){
+    AppStore.addOne()
+  }
+
+  decrement(){
+    AppStore.minusOne()
+  }
+  
   render() {
     var layout = [
-      {i: 'a', x: 0, y: 0, w: 3, h: 4, static:false, isDraggable:false, isResizable:true},
-      {i: 'b', x: 3, y: 0, w: 3, h: 4,},
-      {i: 'c', x: 6, y: 0, w: 3, h: 4},
-      {i: 'd', x: 9, y: 0, w: 3, h: 4},
-      {i: 'e', x: 12, y: 0, w: 3, h: 4},
-      {i: 'f', x: 15, y: 0, w: 3, h: 4},
-      {i: 'g', x: 18, y: 0, w: 3, h: 4, autoSize:true}
+      {i: 'a', x: 0, y: 0, w: 3, h: 4},
+      {i: 'b', x: 3, y: 0, w: 3, h: 4},
+      {i: 'c', x: 0, y: 5, w: 3, h: 4},
+      {i: 'd', x: 3, y: 5, w: 3, h: 4}
     ];
     return (
       <div className="App">
@@ -25,23 +38,21 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-            There is a Div Below this Text that should allow for RGL Functionality
-        </p>
+        <div>
+          <button onClick={this.increment}>+</button>
+          <button onClick={this.decrement}>-</button>
+        </div>
         <ReactGridLayout className="layout" layout={layout} cols={30} rowHeight={20} width={1200} height={300}>
-          <div className="gridItem" key="a">a</div>
-          <div className="gridItem" key="b">b</div>
-          <div className="gridItem" key="c">c</div>
-          <div className="gridItem" key="d"><Comp1/></div>
-          <div className="gridItem" key="e"><Comp2/></div>
-          <div className="gridItem" key="f"><Comp3/></div>
-          <div className="gridItem" key="g"><Comp4/></div>
+          <div className="gridItem" key="a"><Comp1/></div>
+          <div className="gridItem" key="b"><Comp2/></div>
+          <div className="gridItem" key="c"><Comp3/></div>
+          <div className="gridItem" key="d"><Comp4/></div>
         </ReactGridLayout>
       </div>
     );
   }
 }
 
-export default App;
+export default observer(App);
 
 
