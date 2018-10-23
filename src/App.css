@@ -27,8 +27,8 @@
 }
 .gridItem{
   border:1px solid red;
-  background-color: lightgoldenrodyellow;
-  color:blue;
+  background-color: black;
+  color:chartreuse;
   resize:both;
   overflow:auto;
 }
@@ -36,4 +36,16 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.carousel-wrapper{
+  border:3px solid orange;
+  height:fit-content;
+  width:fit-content;
+}
+.carousel-item-image{
+  border:1px solid red;
+}
+.carousel-item-label{
+  color:chartreuse
 }
